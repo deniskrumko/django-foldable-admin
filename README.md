@@ -54,7 +54,7 @@ Then you need to provide this JS and CSS files to `admin/index.html` template.
 
 Template from project already have required lines. If you are using own template you need to add following sections:
 
-CSS:
+**CSS:**
 
 ```html
 {% block extrastyle %}{{ block.super }}
@@ -65,7 +65,7 @@ CSS:
 {% endblock %}
 ```
 
-Javascript:
+**Javascript:**
 ```html
 {% block extrahead %}{{ block.super }}
 <!-- JQuery 3.2.1 -->
@@ -87,6 +87,8 @@ Also see: [How to manage static files in Django](https://docs.djangoproject.com/
 Customization
 -------------
 
+### All sections are expanded
+
 To make all sections expanded by default, you can delete following code from `foldable_admin.js` (line 19):
 ```javascript
 // Collapse all elements at the page load
@@ -101,6 +103,8 @@ $('.tbody-collapse')
 .children()
 .slideUp();
 ```
+
+### Remove "Expand all" button
 
 To remove `Expand/Collapse all` button from index page, remove following lines from `foldable_admin.html` (line 16):
 ```html
