@@ -1,0 +1,67 @@
+{% load i18n static %}
+{% comment %}
+
+This is a copy of original `content` block from `admin/index.html` with next changes:
+
+- Added "Expand/Collapse all" button
+- Added "caption-collapse" class for "caption" element
+- Added "tbody-collapse" class for "tbody" element
+
+{% endcomment %}
+<div id="content-main">
+
+{% url 'admin:index' as index_page %}
+
+{% if app_list %}
+    {# Show "Expand all/Collapse all" button only on index page #}
+    {% if request.get_full_path == index_page %}
+    <a class="collapse-button">Expand all</a>
+    {% endif %}
+
+    {% for app in app_list %}
+        <div class="app-{{ app.app_label }} module">
+        <table>
+        {# Apply custom classes for "caption" and "tbody" #}
+        {% if request.get_full_path == index_page %}
+        <caption class="caption-collapse">
+            <a href="{{ app.app_url }}" class="section" title="{% blocktrans with name=app.name %}Models in the {{ name }} application{% endblocktrans %}">{{ app.name }}</a>
+            <div class="collapse-icon">
+              <div class="arrow-down"></div>
+            </div>
+        </caption>
+        <tbody class="tbody-collapse">
+        {% else %}
+        <caption>
+            <a href="{{ app.app_url }}" class="section" title="{% blocktrans with name=app.name %}Models in the {{ name }} application{% endblocktrans %}">{{ app.name }}</a>
+        </caption>
+        <tbody>
+        {% endif %}
+        {% for model in app.models %}
+            <tr class="model-{{ model.object_name|lower }}">
+            {% if model.admin_url %}
+                <th scope="row"><a href="{{ model.admin_url }}">{{ model.name }}</a></th>
+            {% else %}
+                <th scope="row">{{ model.name }}</th>
+            {% endif %}
+
+            {% if model.add_url %}
+                <td><a href="{{ model.add_url }}" class="addlink">{% trans 'Add' %}</a></td>
+            {% else %}
+                <td>&nbsp;</td>
+            {% endif %}
+
+            {% if model.admin_url %}
+                <td><a href="{{ model.admin_url }}" class="changelink">{% trans 'Change' %}</a></td>
+            {% else %}
+                <td>&nbsp;</td>
+            {% endif %}
+            </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+        </div>
+    {% endfor %}
+{% else %}
+    <p>{% trans "You don't have permission to edit anything." %}</p>
+{% endif %}
+</div>

@@ -1,0 +1,56 @@
+/*
+
+Stylesheet for "django-foldable-admin".
+Source: https://github.com/deniskrumko/django-foldable-admin
+
+*/
+
+/* Hide rows after page is loaded*/
+.tbody-collapse {
+  display: none
+}
+
+/* Set constant width to caption */
+.caption-collapse {
+  width: 585px;
+}
+
+/* Make captions look like big long buttons */
+.caption-collapse:hover {
+  background: #669fbb;
+  cursor: pointer;
+}
+
+/* Animated arrow in the right of the caption*/
+.collapse-icon {
+  -moz-transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  margin-right: 5px;
+  margin-top: 5px;
+  float: right;
+}
+
+/* Button to expand/collapse all lines */
+.collapse-button {
+  position: absolute;
+  left: 565px;
+  top: 86px;
+  cursor: pointer;
+  color: #417690;
+}
+
+/* Make this button to look like link */
+.collapse-button:hover {
+  text-decoration: underline;
+}
+
+/* Arrow icon */
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid #fff;
+}
