@@ -3,14 +3,14 @@ django-foldable-admin
 
 **django-foldable-admin** allows to collapse/expand application sections in [Django Administration](https://docs.djangoproject.com/en/1.11/ref/contrib/admin/).
 
-![alt image](http://i.imgur.com/Z4bvJlX.png)
+**☠️ THIS PROJECT IS NO LONGER SUPPORTED ☠️**
 
-**Live example**: http://django-foldable-admin-live.bitballoon.com/
+![alt image](http://i.imgur.com/Z4bvJlX.png)
 
 Requires:
 
-  * Django >=1.8
-  * Python 2.7 or >=3.3
+  * Django >=1.8 (not tested on new versions since Django >= 2)
+  * Python 2.7 or >=3.3 (not tested on new versions since Python >= 3.4)
 
 Installation
 ------------
